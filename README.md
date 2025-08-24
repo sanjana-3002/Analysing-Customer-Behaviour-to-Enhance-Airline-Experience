@@ -1,9 +1,9 @@
-# Analysing-Customer-Behaviour-to-Enhance-Airline-Experience (ML+NLP)
+## Analysing-Customer-Behaviour-to-Enhance-Airline-Experience (ML+NLP)
 From messy flight data to actionable CX: I used ML+NLP to predict satisfaction/loyalty on 129k rows (best RBF-SVM ~81.9% acc) and mine 64k reviews (TF-IDF) into detractor/passive/promoter themes. 
 
 Story: reliability hurts; service lifts (Wi-Fi, boarding, crew, cleanliness) → retention wins.
 
-🚀 Overview:
+## 🚀 Overview:
 - Purpose: Identify what drives satisfaction & loyalty and surface themes from reviews that teams can act on.
 - How it works:
   (i) Tabular ML → feature selection → train & evaluate classifiers for Satisfaction and Loyalty.
@@ -13,13 +13,13 @@ Story: reliability hurts; service lifts (Wi-Fi, boarding, crew, cleanliness) →
 (ii) Loyalty (tabular): Economy-only and Business-only subsets
 (iii) Reviews (NLP): Multi-class classification + word themes
 
-✨ Features:
+## ✨ Features:
 - ML pipelines for satisfaction & loyalty with baseline models (LogReg/DT/RF/XGB/SVM)
 - NLP pipeline (clean → tokenize → lemmatize → TF-IDF → classify)
 - Interpretable outputs: feature importance (tree models), confusion matrices, class reports
 - CX playbook mapping: reliability, boarding, Wi-Fi, crew/service, cleanliness
 
-📊 Data & Results (notebooks)
+## 📊 Data & Results (notebooks)
 - Tabular dataset: ~129,880 rows, ~24–26 columns
 - Reviews dataset: 64,017 texts (NPS → Detractor/Passive/Promoter)
 
@@ -31,16 +31,16 @@ Results (best per notebook)
 
 Signals often ranked high: Online boarding, Inflight Wi-Fi, Seat comfort, Inflight entertainment, Gate location, Departure/Arrival time convenience, Age (context), and overall Satisfaction when predicting Loyalty.
 
-🧱 Architecture
+## 🧱 Architecture
 [Raw Tabular] ─┐    Clean/EDA → Feature Selection → Train (DT/RF/XGB/SVM) → Metrics → Insights
                 └─> 
 [Reviews Text] ──> Clean → Tokenize/Lemmatize → TF-IDF → Classify (NB/SVM) → Themes → Insights
 
-📦 Tech Stack
+## 📦 Tech Stack
 
 Python, pandas, scikit-learn, XGBoost, NLTK, wordcloud, Matplotlib/Seaborn, Jupyter
 
-📁 Repository Structure
+## 📁 Repository Structure
 .
 ├── notebooks/
 │   ├── satisfaction.ipynb
@@ -51,27 +51,28 @@ Python, pandas, scikit-learn, XGBoost, NLTK, wordcloud, Matplotlib/Seaborn, Jupy
 ├── figures/         # generated plots/wordclouds
 └── README.md
 
-⚙️ Setup
+## ⚙️ Setup
 
 Requirements: Python 3.10+, Jupyter
 
-# Create & activate env
+**Create & activate env**
 python -m venv .venv
-# Windows: .venv\Scripts\activate
-# macOS/Linux:
+**Windows:**
+.venv\Scripts\activate
+**macOS/Linux:**
 source .venv/bin/activate
 
-# Install deps
+**Install deps**
 pip install -U pandas numpy scikit-learn xgboost nltk wordcloud matplotlib seaborn jupyter
 
-# NLTK (one-time)
+**NLTK (one-time)**
 python - <<'PY'
 import nltk
 for p in ["punkt","stopwords","wordnet","omw-1.4"]:
     nltk.download(p)
 PY
 
-▶️ Run
+## ▶️ Run
 
 - Place your datasets in data/ (update paths in the first cell of each notebook if needed).
 
@@ -82,7 +83,7 @@ PY
 
 Run cells top-to-bottom to reproduce metrics and figures.
 
-🧪 Tips & Testing
+## 🧪 Tips & Testing
 
 - Check class imbalance (e.g., Passive in NLP) → try stratified splits, class weights, or resampling.
 
@@ -90,7 +91,7 @@ Run cells top-to-bottom to reproduce metrics and figures.
 
 - Compare Linear SVM vs Multinomial NB for TF-IDF; try BERT for a stronger baseline.
 
-🗺️ Roadmap
+## 🗺️ Roadmap
 
 - SHAP for model explanations
 
